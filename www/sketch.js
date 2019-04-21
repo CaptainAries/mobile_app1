@@ -1,14 +1,14 @@
 var da; // delta angle
 var dx; // noise increment value
 
-var still = false; // toggle still image on/off
+var still = false;
 var inkblots = [];
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    da = PI / 100 // delta angle
-    dx = 0.05; // noise increment value
-    initInkBlots(); // initializing my inkBlots
+    da = PI / 100
+    dx = 0.05;
+    initInkBlots();
 }
 
 function draw() {
@@ -23,7 +23,7 @@ function draw() {
         textAlign(CENTER);
         textStyle(BOLD);
         textSize(28);
-        // text("Online", windowWidth / 2, windowHeight / 2 - 30);
+
         text("Rorschach's Test", windowWidth / 2, windowHeight / 2 - 30);
         textSize(18);
         text("What do you see?", windowWidth / 2, windowHeight / 2 + 40);
@@ -49,7 +49,7 @@ function touchStarted() {
 }
 
 function initInkBlots(){
-    inkblots[0] = new Inkblot(100, 450, -20, 20, 0); // initializing my inkBlots
+    inkblots[0] = new Inkblot(100, 450, -20, 20, 0);
     inkblots[1] = new Inkblot(-300, -50, 100, -100, 0);
     inkblots[2] = new Inkblot(50, 450, -200, 200, 255);
     inkblots[3] = new Inkblot(70, 240, 130, -130, 255);
@@ -60,7 +60,7 @@ function initInkBlots(){
 }
 
 function Inkblot(rMin, rMax, oscMin, oscMax, hue) {
-    // instance data
+
     this.transX = width/2;
     this.transY = height/2;
     this.xoff = map(int(random(1, 5)), 1, 5, 1000, 5000);
@@ -79,12 +79,12 @@ function Inkblot(rMin, rMax, oscMin, oscMax, hue) {
         translate(this.transX, this.transY + osc2);
         beginShape();
         for (var a = -PI / 2; a <= (3 * PI) / 2; a += da) {
-            var n = noise(this.xoff , this.yoff); // geting me values from 0 and 1;
+            var n = noise(this.xoff , this.yoff);
             var r = map(n, 0, 1, this.rMin, this.rMax + osc2);
-            if (a <= PI / 2) { // left wing
-                this.xoff += dx; // scrubbing through perlinNoise "timeline"
-            } else { // right wind
-                this.xoff -= dx; // reverse scrubbing through perlinNoise "timeline"
+            if (a <= PI / 2) {
+                this.xoff += dx;
+            } else {
+                this.xoff -= dx; 
             }
             var x = r * cos(a);
             var y = r * sin(a);
