@@ -16,61 +16,33 @@
 <script src="js/p5.dom.min.js"></script>
 <script src="js/p5.sound.min.js"></script>
 <script src="sketch.js"></script>
+<script src="intro.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
-<!-- use zimjs.com/distill for minified individual functions! -->
+<style>
+      #htp {
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 10px;
+      color: black;
+      background-color: rgba(1, 1, 1, 0.2);
+      text-decoration: none;
+      }
+</style>
 
-<script>
 
-// SCALING OPTIONS
-// scaling can have values as follows with full being the default
-// "fit"	sets canvas and stage to dimensions and scales to fit inside window size
-// "outside"	sets canvas and stage to dimensions and scales to fit outside window size
-// "full"	sets stage to window size with no scaling
-// "tagID"	add canvas to HTML tag of ID - set to dimensions if provided - no scaling
 
-var scaling = "fit"; // this will resize to fit inside the screen dimensions
-var width = 1024;
-var height = 768;
-var color = light; // ZIM colors like green, blue, pink, faint, clear, etc. available globally
-var outerColor = dark; // any HTML colors like "violet", "#333", etc. fine to use
-
-var frame = new Frame(scaling, width, height, color, outerColor);
-frame.on("ready", function() {
-    zog("ready from ZIM Frame"); // logs in console (F12 - choose console)
-
-    var stage = frame.stage;
-    var stageW = frame.width;
-    var stageH = frame.height;
-
-    // see https://zimjs.com/learn.html for video and code tutorials
-    // see https://zimjs.com/docs.html for documentation
-    // see https://zimjs.com/bits.html for 64 Interactive Media techniques
-
-    // put your code here (you can delete this sample code)
-
-    // with chaining - can also assign to a variable for later access
-    new Circle(500, blue)
-        .center()
-        .drag();
-
-    // without chaining
-    // var circle = new Circle(100, pink);
-    // circle.center();
-    // circle.drag();
-
-    stage.update(); // this is needed to show any changes
-
-}); // end of ready
-
-</script>
 
 <meta name="viewport" content="width=device-width, user-scalable=no" />
 
 </head>
 
 <body>
-<!-- canvas with id="myCanvas" is made by zim Frame -->
+  <span id="instructions"></span>
+  <a href="#" id="htp">What is Rorschach Test?</span>
+
 </body>
 </html>
